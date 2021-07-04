@@ -9,7 +9,7 @@ export PATH
 #Dependencies:rsync
 #Blogs: https://www.donote.ml https://6donote4.github.io
 #=======================================
-#git pull
+git pull
 #hexo g
 rsync -avz . $HOME/mygitrepo/6donote4.github.io
 rsync -avz . /var/www/blog/html
