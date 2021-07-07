@@ -65,7 +65,7 @@
     <link href="https://www.donote.ml/BBS/2020/01/30/How_to_Write_OpenWrt_ImgFile_to_Partition_on_HTPC_in_Debian/"/>
     <id>https://www.donote.ml/BBS/2020/01/30/How_to_Write_OpenWrt_ImgFile_to_Partition_on_HTPC_in_Debian/</id>
     <published>2020-01-30T14:16:00.000Z</published>
-    <updated>2021-07-04T16:46:50.364Z</updated>
+    <updated>2021-07-07T17:26:46.649Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
@@ -96,7 +96,7 @@
     <link href="https://www.donote.ml/BBS/2020/01/04/HowToBuildPXEonLinux/"/>
     <id>https://www.donote.ml/BBS/2020/01/04/HowToBuildPXEonLinux/</id>
     <published>2020-01-04T08:26:00.000Z</published>
-    <updated>2021-07-04T17:08:41.014Z</updated>
+    <updated>2021-07-07T17:04:09.729Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
@@ -124,18 +124,18 @@ PXE是一种可以提供网络引导启动的服务，主要用于通过网络�
     <link href="https://www.donote.ml/BBS/2019/08/25/HowToConfigureAndBuildLAMP_And_inoERP/"/>
     <id>https://www.donote.ml/BBS/2019/08/25/HowToConfigureAndBuildLAMP_And_inoERP/</id>
     <published>2019-08-25T06:26:00.000Z</published>
-    <updated>2021-07-04T17:12:36.065Z</updated>
+    <updated>2021-07-07T17:06:00.369Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
+&lt;p&gt;翻墙后，即可评论博文&lt;/p&gt;
 &lt;p&gt;本篇博文用于记录LAMP环境及ERP的部署过程。&lt;/p&gt;
 &lt;p&gt;LAMP即Linux，Apache，MySQL，PHP，也就是web服务环境。ERP即enterprise resources planning，也就是企业资源规划系统用于管理，监控企业的各种资源。&lt;br /&gt;
 ERP系统不仅适用于企业实体，普通网店，个体经营户也可以使用。仅仅使用模块的多少之区别而已。&lt;br /&gt;
-笔者的搭建环境为:Debian 10,使用的是开源的ERP系统&lt;a href=&quot;https://github.com/inoerp/inoERP&quot;&gt;inoERP&lt;/a&gt;进行部署。&lt;/p&gt;
-&lt;p&gt;另外，还配置了&lt;a href=&quot;https://www.webmin.com&quot;&gt;Webmin&lt;/a&gt;,用于在Web浏览器上管理服务器，省去了更改配置文件及敲代码的时间。毕竟Mysql语句，笔者懂得并不多。使用Web页面管理数据库比较直观。&lt;br /&gt;
-inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账单，成本管理，人力资源管理等。。。。&lt;br /&gt;
-&lt;/font&gt;&lt;/p&gt;</summary>
+笔者的搭建环境为:Debian 10,使用的是开源的ERP系统&lt;a href=&quot;https://github.com/inoerp/inoERP&quot;&gt;inoERP&lt;/a&gt;进行部署。&lt;br /&gt;
+另外，还配置了&lt;a href=&quot;https://www.webmin.com&quot;&gt;Webmin&lt;/a&gt;,用于在Web浏览器上管理服务器，省去了更改配置文件及敲代码的时间。毕竟Mysql语句，笔者懂得并不多。使用Web页面管理数据库比较直观。&lt;br /&gt;
+inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账单，成本管理，人力资源管理等。。。。&lt;/p&gt;
+&lt;/font&gt;</summary>
     
     
     
@@ -241,11 +241,11 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-之前一篇博文记录关于虚拟机路由器的搭建过程，使用了KoolShare家的固件进行搭建。由于KoolShare固件并不是开源的，运行这个固件只有二进制代码，非常不透明，我们并不知道这个固件是否会有后门，偷偷的将我们的精神出国工具收集上传到所谓的酷软中心服务器。为了避免这种可能性，选择了开源的适合国内网络环境的LEDE代码仓库，自行编译定制属于自己的软路由固件。本篇博文出于这个目的，来记录软路由固件的编译过程。待重新编译时，可回顾一下这个过程。
-编译过程使用了恩山社区L大的源码包进行编译，在此基础上，汇整了ChinaDNS,Koolproxy源码包，解除ssr-plus插件的解锁代码，纠正一处Makefile错误，使得SSR-plus可以顺利编译。
-因amule和softetherVPN在编译过程中出错，无法解决问题，只能放弃了这两个包。
-因硬件路由性能并不如软路由，而且需要考虑各种架构问题。因此只编译x86_amd64的固件。
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+之前一篇博文记录关于虚拟机路由器的搭建过程，使用了KoolShare家的固件进行搭建。由于KoolShare固件并不是开源的，运行这个固件只有二进制代码，非常不透明，我们并不知道这个固件是否会有后门，偷偷的将我们的精神出国工具收集上传到所谓的酷软中心服务器。为了避免这种可能性，选择了开源的适合国内网络环境的LEDE代码仓库，自行编译定制属于自己的软路由固件。本篇博文出于这个目的，来记录软路由固件的编译过程。待重新编译时，可回顾一下这个过程。&lt;br /&gt;
+编译过程使用了恩山社区L大的源码包进行编译，在此基础上，汇整了ChinaDNS,Koolproxy源码包，解除ssr-plus插件的解锁代码，纠正一处Makefile错误，使得SSR-plus可以顺利编译。&lt;br /&gt;
+因amule和softetherVPN在编译过程中出错，无法解决问题，只能放弃了这两个包。&lt;br /&gt;
+因硬件路由性能并不如软路由，而且需要考虑各种架构问题。因此只编译x86_amd64的固件。&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -270,12 +270,12 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2019/02/11/HowToCreateOpenWRT_KVM/"/>
     <id>https://www.donote.ml/BBS/2019/02/11/HowToCreateOpenWRT_KVM/</id>
     <published>2019-02-11T10:40:00.000Z</published>
-    <updated>2021-07-04T13:35:47.752Z</updated>
+    <updated>2021-07-07T17:09:37.404Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文.
-放假这几天，把大把的时间都投入到OpenWRT虚拟机及其网络的搭建之研究中，现在已初现成果，物理设备均可连接到虚拟网络之中，也实现了物理设备的出国。趁着还没忘记搭建过程，写下这篇记录，以备虚拟机文件丢失的时候，又得花大把时间重新再搭建一遍，费时费力。把走过的路记下来，下次就不会迷路咯。
+&lt;p&gt;翻墙后，即可评论博文.&lt;br /&gt;
+放假这几天，把大把的时间都投入到OpenWRT虚拟机及其网络的搭建之研究中，现在已初现成果，物理设备均可连接到虚拟网络之中，也实现了物理设备的出国。趁着还没忘记搭建过程，写下这篇记录，以备虚拟机文件丢失的时候，又得花大把时间重新再搭建一遍，费时费力。把走过的路记下来，下次就不会迷路咯。&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -300,14 +300,12 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2018/09/09/MyShellScripts/"/>
     <id>https://www.donote.ml/BBS/2018/09/09/MyShellScripts/</id>
     <published>2018-09-09T15:26:00.000Z</published>
-    <updated>2021-07-06T16:28:05.143Z</updated>
+    <updated>2021-07-07T17:02:51.556Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-最近,手头上已有三个主机了,并且都配置了frp内网穿透服务以实现远程控制,随着主机的增多,便萌生了编写交互式Shell脚本来更新和登录主机的需求,以及在Linux上进行文件处理的需求。
-登录主机的脚本是建立在内网穿透服务搭建完成之后实现的，这里的脚本并未将搭建过程编写在内，而是另外写了个服务文件，让其主机启动时自动运行，并连接远程主机。frp配置服务见 
-[我的debian-scripts](https://github.com/6donote4/debian-scripts)   
-中的myfrp压缩文件包，可搜索网上资料进行frp服务的搭建。
+&lt;p&gt;最近,手头上已有三个主机了,并且都配置了frp内网穿透服务以实现远程控制,随着主机的增多,便萌生了编写交互式Shell脚本来更新和登录主机的需求,以及在Linux上进行文件处理的需求。&lt;br /&gt;
+登录主机的脚本是建立在内网穿透服务搭建完成之后实现的，这里的脚本并未将搭建过程编写在内，而是另外写了个服务文件，让其主机启动时自动运行，并连接远程主机。frp配置服务见 &lt;a href=&quot;https://github.com/6donote4/debian-scripts&quot;&gt;我的debian-scripts&lt;/a&gt;             中的myfrp压缩文件包，可搜索网上资料进行frp服务的搭建。&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -324,15 +322,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2018/02/04/car-navigation-systems-apps/"/>
     <id>https://www.donote.ml/BBS/2018/02/04/car-navigation-systems-apps/</id>
     <published>2018-02-04T14:47:00.000Z</published>
-    <updated>2021-07-06T16:29:35.426Z</updated>
+    <updated>2021-07-07T17:13:49.200Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于纽约时报网站 : 
-[点击查看原文](https://www.nytimes.com/2018/02/01/business/car-navigation-systems-apps.html?rref=collection%2Fsectioncollection%2Fbusiness&amp;action=click&amp;contentCollection=business&amp;region=stream&amp;module=stream_unit&amp;version=latest&amp;contentPlacement=1&amp;pgtype=sectionfront)
-必需要翻墙才能查阅。
-作者:Eric A. Taub
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于纽约时报网站 : &lt;a href=&quot;https://www.nytimes.com/2018/02/01/business/car-navigation-systems-apps.html?rref=collection%2Fsectioncollection%2Fbusiness&amp;amp;action=click&amp;amp;contentCollection=business&amp;amp;region=stream&amp;amp;module=stream_unit&amp;amp;version=latest&amp;amp;contentPlacement=1&amp;amp;pgtype=sectionfront&quot;&gt;点击查看原文&lt;/a&gt; ,必须要翻墙才能查阅。&lt;br /&gt;
+作者:Eric A. Taub&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -353,15 +349,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2018/02/01/congress-train-accident/"/>
     <id>https://www.donote.ml/BBS/2018/02/01/congress-train-accident/</id>
     <published>2018-02-01T14:47:00.000Z</published>
-    <updated>2021-07-06T16:30:19.530Z</updated>
+    <updated>2021-07-07T17:15:44.195Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 : 
-[点击查看原文](https://edition.cnn.com/2018/01/31/politics/congress-train-accident/index.html)
-可能需要翻墙才能查阅。
-作者:Lauren Fox, Jeremy Diamond,MJ Lee 和Deirdre Walsh
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 : &lt;a href=&quot;https://edition.cnn.com/2018/01/31/politics/congress-train-accident/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Lauren Fox, Jeremy Diamond,MJ Lee 和Deirdre Walsh&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -382,15 +376,14 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2018/01/31/nuro-self-driving-delivery/"/>
     <id>https://www.donote.ml/BBS/2018/01/31/nuro-self-driving-delivery/</id>
     <published>2018-01-31T14:47:00.000Z</published>
-    <updated>2021-07-06T16:36:00.483Z</updated>
+    <updated>2021-07-07T17:16:23.863Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 : 
-[点击查看原文](http://money.cnn.com/2018/01/30/technology/nuro-self-driving-delivery/index.html)
-可能需要翻墙才能查阅。
-作者:Matt McFarland
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 :&lt;br /&gt;
+&lt;a href=&quot;http://money.cnn.com/2018/01/30/technology/nuro-self-driving-delivery/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Matt McFarland&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -409,14 +402,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2018/01/29/flu-vaccine-design-study/"/>
     <id>https://www.donote.ml/BBS/2018/01/29/flu-vaccine-design-study/</id>
     <published>2018-01-29T14:47:00.000Z</published>
-    <updated>2021-07-04T13:35:47.756Z</updated>
+    <updated>2021-07-07T17:17:18.215Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 : [点击查看原文](https://edition.cnn.com/2018/01/18/health/flu-vaccine-design-study/index.html)
-可能需要翻墙才能查阅。
-作者:Jacqueline Howard
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 : &lt;a href=&quot;https://edition.cnn.com/2018/01/18/health/flu-vaccine-design-study/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Jacqueline Howard&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -435,15 +427,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2017/10/28/sexual-harassment-tech-industry/"/>
     <id>https://www.donote.ml/BBS/2017/10/28/sexual-harassment-tech-industry/</id>
     <published>2017-10-28T14:47:00.000Z</published>
-    <updated>2021-07-06T16:36:41.980Z</updated>
+    <updated>2021-07-07T17:18:05.176Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 : 
-[点击查看原文](http://money.cnn.com/2017/10/27/technology/culture/sexual-harassment-tech-industry/index.html)
-可能需要翻墙才能查阅。
-作者:Sara Ashley O&#39;Brien
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 : &lt;a href=&quot;http://money.cnn.com/2017/10/27/technology/culture/sexual-harassment-tech-industry/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Sara Ashley O&#39;Brien&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -466,15 +456,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2017/10/05/eyedetect-lies-polygraph/"/>
     <id>https://www.donote.ml/BBS/2017/10/05/eyedetect-lies-polygraph/</id>
     <published>2017-10-05T05:56:00.000Z</published>
-    <updated>2021-07-06T16:34:54.383Z</updated>
+    <updated>2021-07-07T17:18:54.711Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 :
-[点击查看原文](http://money.cnn.com/2017/10/04/technology/business/eyedetect-lies-polygraph/index.html)
-可能需要翻墙才能查阅。
-作者:Matt McFarland
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 :&lt;a href=&quot;http://money.cnn.com/2017/10/04/technology/business/eyedetect-lies-polygraph/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Matt McFarland&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -495,15 +483,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2017/10/04/return-trip-italy/"/>
     <id>https://www.donote.ml/BBS/2017/10/04/return-trip-italy/</id>
     <published>2017-10-04T12:36:00.000Z</published>
-    <updated>2021-07-06T16:36:20.110Z</updated>
+    <updated>2021-07-07T17:19:42.524Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 : 
-[点击查看原文](http://edition.cnn.com/travel/article/return-trip-italy/index.html)
-可能需要翻墙才能查阅。
-作者:Jeanne Bonner
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 : &lt;a href=&quot;http://edition.cnn.com/travel/article/return-trip-italy/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Jeanne Bonner&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
@@ -522,15 +508,13 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <link href="https://www.donote.ml/BBS/2017/10/01/taiwan-whisky-kavalan/"/>
     <id>https://www.donote.ml/BBS/2017/10/01/taiwan-whisky-kavalan/</id>
     <published>2017-10-01T14:26:00.000Z</published>
-    <updated>2021-07-06T16:37:03.500Z</updated>
+    <updated>2021-07-07T17:20:27.418Z</updated>
     
     
     <summary type="html">&lt;font size=4&gt;
-翻墙后，即可评论博文
-文章来源于CNN网站 : 
-[点击查看原文](http://edition.cnn.com/travel/article/taiwan-whisky-kavalan/index.html)
-可能需要翻墙才能查阅。
-作者:Marian Liu
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于CNN网站 :  &lt;a href=&quot;http://edition.cnn.com/travel/article/taiwan-whisky-kavalan/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
+作者:Marian Liu&lt;/p&gt;
 &lt;/font&gt;</summary>
     
     
