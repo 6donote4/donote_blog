@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    「原创」Excel自动化
+  
+</title>
+
+<meta name="description" content="翻墙后，即可评论博文  最近，因工作需要，特意去折腾了一下Excel。基本上，就是实现自己想要的功能.至于熟练的玩转Excel,那还没到这种地步。权且把自己所实现的功能记录下来，供以后参考之用。">
+<meta name="keywords" content="Excel自动化,快速创建表单,Excel模版创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「原创」Excel自动化">
+<meta property="og:url" content="https://www.donote.tk/BBS/2017/07/15/Excel_Automation/index.html">
+<meta property="og:site_name" content="​乘风踏浪破万障のブログ">
+<meta property="og:description" content="翻墙后，即可评论博文  最近，因工作需要，特意去折腾了一下Excel。基本上，就是实现自己想要的功能.至于熟练的玩转Excel,那还没到这种地步。权且把自己所实现的功能记录下来，供以后参考之用。">
+<meta property="og:image" content="https://www.donote.tk/pictures/post_1102Excel_Automation.png">
+<meta property="og:image" content="https://www.donote.tk/pictures/post_1102Excel_Automation2.png">
+<meta property="og:image" content="https://www.donote.tk/pictures/post_1102Excel_Automation3.png">
+<meta property="og:updated_time" content="2019-08-25T15:26:14.018Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「原创」Excel自动化">
+<meta name="twitter:description" content="翻墙后，即可评论博文  最近，因工作需要，特意去折腾了一下Excel。基本上，就是实现自己想要的功能.至于熟练的玩转Excel,那还没到这种地步。权且把自己所实现的功能记录下来，供以后参考之用。">
+<meta name="twitter:image" content="https://www.donote.tk/pictures/post_1102Excel_Automation.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="​乘风踏浪破万障のブログ" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/images/favicon.jpg">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+​
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-101005160-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">​乘风踏浪破万障のブログ</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">​乘风踏浪破万障のブログ</a></h1>
+    
+      <p class="subtitle">
+        ​向往自由的世间
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">​发出自己的声音，向世界呐喊。</div>
+        
+        
+          <div class="author">DoNote</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="/images/avatar.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/原创博文/">原创博文</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/图片/">图片</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/外文翻译/">外文翻译</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小推文/">小推文</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/视频/">视频</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/音乐/">音乐</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ERP/">ERP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel模版创建/">Excel模版创建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel模版创建/">Excel模版创建　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel自动化/">Excel自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel自动化/">Excel自动化　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KOOLSHARE/">KOOLSHARE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVM/">KVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LAMP/">LAMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LEDE/">LEDE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinuxShellScript-SQL数据库/">LinuxShellScript SQL数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MTV/">MTV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWRT/">OpenWRT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Privoxy/">Privoxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QEMU/">QEMU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/">RaspberryPi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks-libev/">Shadowsocks-libev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国/">中国</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事故/">事故</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/人工智能/">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/俄罗斯/">俄罗斯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/健康/">健康</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/医改/">医改</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/医疗/">医疗</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/台湾-威斯忌酒-旅行/">台湾 威斯忌酒 旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/固件编译/">固件编译</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片/">图片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小心情/">小心情</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速创建表单/">快速创建表单</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性骚扰/">性骚扰　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/意大利/">意大利</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手机App/">手机App</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抑郁/">抑郁</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/政治/">政治</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/政治/">政治　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文化/">文化　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时事/">时事</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/汽车导航/">汽车导航</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测谎仪/">测谎仪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/眼睛侦测/">眼睛侦测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硅谷产业/">硅谷产业　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科技/">科技</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科技/">科技　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/精神出国/">精神出国</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美国/">美国</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动驾驶汽车/">自动驾驶汽车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诺贝尔/">诺贝尔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/谷歌/">谷歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软路由/">软路由</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/透明代理/">透明代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐/">音乐</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">24</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="主页">主页</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="文章">文章</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://www.donote.tk" title="DoNote" target="_blank" rel="external">DoNote</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://www.donote.tk/BBS" title="donote's BBS(论坛)" target="_blank" rel="external">donote's BBS(论坛)</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://6donote4.github.io" title="Github Blog" target="_blank" rel="external">Github Blog</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/6donote4" title="Github Page" target="_blank" rel="external">Github Page</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS订阅">RSS订阅</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-Excel_Automation" class="article article-type-post">
+  
+    <h1 class="article-header">
+      「原创」Excel自动化
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2017-07-16
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/原创博文/">原创博文</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Excel模版创建/">Excel模版创建</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Excel自动化/">Excel自动化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/快速创建表单/">快速创建表单</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <font size="4"><br>翻墙后，即可评论博文<br><br>  最近，因工作需要，特意去折腾了一下Excel。基本上，就是实现自己想要的功能.至于熟练的玩转Excel,那还没到这种地步。权且把自己所实现的功能记录下来，供以后参考之用。<br></font><br><a id="more"></a><br><br><audio controls="controls" name="media" style="width:264px" autoplay loop="true"><br><source src="/musics/wish.mp3"><br></audio><br><br><em>*</em><br><font size="4"><br><br>  先附上三张效果图:<br>  <img src="/pictures/post_1102Excel_Automation.png" alt="Excel自动化"><img src="/pictures/post_1102Excel_Automation2.png" alt="Excel自动化"><img src="/pictures/post_1102Excel_Automation3.png" alt="Excel自动化"><br>  再放出我制作的表单范本(右键另存）:<br>  <a href="/data/Example.xlsx">Example.xlsx</a> <a href="/data/Excel_Example.rar">Excel_Example.rar</a><br>  <a href="/data/VBA_Example.rar">VBA_Example.rar</a><br><br>  先说说我想实现的功能：1.依照固定的格式内容模板，自动建立并格式化一个总表单；2.依照型号列的单元格内容，自动依照分表单模板创建所有对应型号的分表单（人工作业那要做到猴年马月啊，所以要用代码）；3.总表单要链接到分表单，方便跳转到分表录入数据，在修改完分表单之后，总表单在执行程式之后，能够更新剩余数量列项单元格的数据，如果需要更新总数量数据，执行完指定程序之后，总表的剩余数量列项要能够覆盖到总数量列项；4.分表单的型号项、总数量的内容要自动从总表的对应项获取填充，要能返回到总表。<br><br><br>  下面对应说明一下，实现这些功能所做的工作及应用的素材:<br><br>  一、创建带格式的模板，VBA程序语言基础，Excel中工具宏的使用。来谈谈VBA这个东东, 即Visual Basic Application。也就说使用的是VB编程语言。<del>这门编程语言，我基本上没有接触过，大学修的计算机语言是C,毕业之后，有了解过一点点C++。各语言方面的基础元素也有相似的地方。（这些废话不重要。）</del>　代码的话就网上搜索吧，当然要学会修改代码的参数。总表单的模板和分表单的模板可以一起做，拷贝一份代码，重命名一下子程序，删减一些语句就能做成另外一个模板了。Excel宏录制是用来自动生成VBA代码的。宏录制，制作表格，宏停止，再修改一下VBA代码，就能够制作出一份完美的表格模板，以后只要单击运行宏，就能一键建立表格(当然拷贝出另一个已作成的表格也行。如果制作的表格不多的话，可以用拷贝的方法)。<br><br><br>  二、用宏录制配合VBA制作分表单模板，创建批量建立表单的子程序，运用循环语句，自动依照模板，建立表格。利用循环语句，自动使用型号列内容命名分表单，并且自动引用目标表格中的数据，将其填充到分表。所有的操作均可以利用宏录制，来获取代码，通过观察代码，修改实现功能。<br><br>  三、在总表单建立之后，可在总表单上选一单元格，在单元格上使用超链接函数,<font color="red">=Hyperlink(“#”&amp;B2&amp;”!a1”)</font> ,左键双击单元格句柄，就能建立所有以B列单元格内容为名称的且相对应的表单链接，通过在分表单设定特定单元格来更新最新的剩余量数据，所有分表格在同一位置均有这个数据，就能利用循环语句更新总表的剩余量数据项。<br><br>  四、控制选取单元格操作，利用Cells对象属性来指定单元格的特定位置，指定Sheets对象的索引ID，这样就明确了指定了总表中的特定单元格。分表D2的单元格要运用函数=B2－C2，B3的单元格要取用D2的数据,取用数量的数据初始化为0;单列一个单元格填入最新的剩余数量数据，该单元格数据供总表更新剩余数量项的程序作为参数使用,分表单要链接到总表，提供返回入口。(通过宏录制可获取到链接操作的代码)<br><br><br><br>  光使用文字描述的话实在太过抽象，下面给出代码，方便理解。..<br></font>
+
+<pre><code>总表模板代码:
+</code></pre>  <figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  <span class="keyword">Sub</span> 总表模板()</div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">' 工作总表模板　Macro</span></div><div class="line"><span class="comment">'</span></div><div class="line"></div><div class="line"><span class="comment">'程序控制常量设定，在程序头使用常量，可以方便程序修改，不用到处找参数变量。</span></div><div class="line">    <span class="keyword">Const</span> sht_Main_Name = <span class="string">"test"</span> <span class="comment">'总表名称</span></div><div class="line">    <span class="keyword">Const</span> sht_Order_Begin = <span class="number">2</span> <span class="comment">'新建表格起始ID</span></div><div class="line">    <span class="keyword">Const</span> sht_Order_End = <span class="number">6</span> <span class="comment">'新建表格终止ID</span></div><div class="line"></div><div class="line">    <span class="keyword">Const</span> sht_A_ColumnWidth = <span class="number">20</span> <span class="comment">'A列单元格宽度参数</span></div><div class="line">    <span class="keyword">Const</span> sht_B_ColumnWidth = <span class="number">14</span></div><div class="line">    <span class="keyword">Const</span> sht_C_ColumnWidth = <span class="number">14</span></div><div class="line">    <span class="keyword">Const</span> sht_D_ColumnWidth = <span class="number">14</span></div><div class="line">    <span class="keyword">Const</span> sht_E_ColumnWidth = <span class="number">40</span></div><div class="line">    <span class="comment">'Const sht_F_ColumnWidth = 12　’关闭F,G,H列常量参数</span></div><div class="line">    <span class="comment">' Const sht_G_ColumnWidth = 14</span></div><div class="line">    <span class="comment">' Const sht_H_ColumnWidth = 14</span></div><div class="line"></div><div class="line">           <span class="keyword">Const</span> sht_Main_ID = <span class="number">1</span> <span class="comment">'总表顺序ID</span></div><div class="line"></div><div class="line"><span class="comment">'</span></div><div class="line">               Sheets(sht_Main_ID ).Name = sht_Main_Name</div><div class="line"><span class="comment">'总表模板代码，该代码是在宏录制模式下，制作表格生成的代码。              </span></div><div class="line">               Range(<span class="string">"A1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"项目"</span></div><div class="line">               Range(<span class="string">"B1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"型号"</span></div><div class="line">               Range(<span class="string">"C1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"总数量"</span></div><div class="line">               Range(<span class="string">"D1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"剩余数量"</span></div><div class="line">               Range(<span class="string">"E1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"分表"</span></div><div class="line">               <span class="comment">'Range("F1").Select</span></div><div class="line">               <span class="comment">'ActiveCell.FormulaR1C1 = "领取人"</span></div><div class="line">               <span class="comment">'Range("G1").Select</span></div><div class="line">               <span class="comment">'ActiveCell.FormulaR1C1 = "领取时间"</span></div><div class="line">               Columns(<span class="string">"B:B"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.00_);[ºìÉ«](0.00)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.0_);[ºìÉ«](0.0)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0_);[ºìÉ«](0)"</span></div><div class="line">               Columns(<span class="string">"C:C"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.00_);[ºìÉ«](0.00)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.0_);[ºìÉ«](0.0)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0_);[ºìÉ«](0)"</span></div><div class="line">               Columns(<span class="string">"D:D"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.00_);[ºìÉ«](0.00)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.0_);[ºìÉ«](0.0)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0_);[ºìÉ«](0)"</span></div><div class="line">               <span class="comment">'Columns("E:E").Select</span></div><div class="line">               <span class="comment">'Selection.NumberFormatLocal = "@"</span></div><div class="line">               <span class="comment">'Columns("F:F").Select</span></div><div class="line">               <span class="comment">'Selection.NumberFormatLocal = "@"</span></div><div class="line">               <span class="comment">'Columns("G:G").Select</span></div><div class="line">               <span class="comment">'Selection.NumberFormatLocal = "[$-F800]dddd, mmmm dd, yyyy"</span></div><div class="line">               Columns(<span class="string">"A:A"</span>).ColumnWidth = sht_A_ColumnWidth</div><div class="line">               Columns(<span class="string">"B:B"</span>).ColumnWidth = sht_B_ColumnWidth</div><div class="line">               Columns(<span class="string">"C:C"</span>).ColumnWidth = sht_C_ColumnWidth</div><div class="line">               Columns(<span class="string">"D:D"</span>).ColumnWidth = sht_D_ColumnWidth</div><div class="line">               Columns(<span class="string">"E:E"</span>).ColumnWidth = sht_E_ColumnWidth</div><div class="line">               <span class="comment">'Columns("F:F").ColumnWidth = sht_F_ColumnWidth</span></div><div class="line">               Selection.ColumnWidth = <span class="number">18</span></div><div class="line">               Cells.<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection</div><div class="line">                   .HorizontalAlignment = xlCenter</div><div class="line">                   .VerticalAlignment = xlCenter</div><div class="line">                   .WrapText = <span class="literal">False</span></div><div class="line">                   .Orientation = <span class="number">0</span></div><div class="line">                   .AddIndent = <span class="literal">False</span></div><div class="line">                   .IndentLevel = <span class="number">0</span></div><div class="line">                   .ShrinkToFit = <span class="literal">False</span></div><div class="line">                   .ReadingOrder = xlContext</div><div class="line">                   .MergeCells = <span class="literal">False</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               Columns(<span class="string">"B:B"</span>).<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">5296274</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">5296274</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">5296274</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               Columns(<span class="string">"D:D"</span>).<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">65535</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">             <span class="comment">'  Columns("F:F").Select</span></div><div class="line">             <span class="comment">'  With Selection.Interior</span></div><div class="line">             <span class="comment">'      .Pattern = xlSolid</span></div><div class="line">             <span class="comment">'      .PatternColorIndex = xlAutomatic</span></div><div class="line">             <span class="comment">'      .Color = 15773696</span></div><div class="line">             <span class="comment">'      .TintAndShade = 0</span></div><div class="line">             <span class="comment">'      .PatternTintAndShade = 0</span></div><div class="line">             <span class="comment">'  End With</span></div><div class="line"></div><div class="line">                Columns(<span class="string">"A:E"</span>).<span class="keyword">Select</span></div><div class="line">                Selection.Borders(xlDiagonalDown).LineStyle = xlNone</div><div class="line">                Selection.Borders(xlDiagonalUp).LineStyle = xlNone</div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeLeft)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeTop)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeBottom)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeRight)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlInsideVertical)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlInsideHorizontal)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line"></div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div></pre></td></tr></table></figure>
+<p>建立全部分表:<br>  <figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">Sub</span> 建立全部分表()</div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">' 新增工作表 Macro</span></div><div class="line"><span class="comment">'</span></div><div class="line"></div><div class="line"><span class="comment">'程序常量参数设定</span></div><div class="line">    <span class="keyword">Const</span> sht_Order_Begin = <span class="number">2</span> <span class="comment">'新建表格起始ID</span></div><div class="line">    <span class="keyword">Const</span> sht_Order_End = <span class="number">6</span> <span class="comment">'新建表格终止 ID</span></div><div class="line"></div><div class="line">    <span class="keyword">Const</span> sht_A_ColumnWidth = <span class="number">20</span> <span class="comment">'A列单元格宽度</span></div><div class="line">    <span class="keyword">Const</span> sht_B_ColumnWidth = <span class="number">14</span></div><div class="line">    <span class="keyword">Const</span> sht_C_ColumnWidth = <span class="number">14</span></div><div class="line">    <span class="keyword">Const</span> sht_D_ColumnWidth = <span class="number">14</span></div><div class="line">    <span class="keyword">Const</span> sht_E_ColumnWidth = <span class="number">40</span></div><div class="line">    <span class="keyword">Const</span> sht_F_ColumnWidth = <span class="number">12</span></div><div class="line">    <span class="comment">' Const sht_G_ColumnWidth = 14</span></div><div class="line">     <span class="keyword">Const</span> sht_H_ColumnWidth = <span class="number">14</span></div><div class="line"></div><div class="line">    <span class="keyword">Const</span> sht_Main_URL_Address <span class="keyword">As</span> <span class="built_in">String</span> = <span class="string">"test!A1"</span> <span class="comment">'总表超链接地址</span></div><div class="line">    <span class="keyword">Const</span> sht_Main_URL_Text <span class="keyword">As</span> <span class="built_in">String</span> = <span class="string">"返回总表"</span> <span class="comment">'超链接文字显示</span></div><div class="line"></div><div class="line">    <span class="keyword">Const</span> sht_Main_ID = <span class="number">1</span> <span class="comment">'总表顺序ＩＤ　</span></div><div class="line">    <span class="keyword">Const</span> sht_Data_Rel_One = <span class="number">2</span> <span class="comment">'总表型号项数据所在列数</span></div><div class="line">    <span class="keyword">Const</span> sht_Data_Rel_Two = <span class="number">3</span> <span class="comment">'总表总数项数据所在列数</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">For</span> i = sht_Order_Begin <span class="keyword">To</span> sht_Order_End</div><div class="line">        Sheets.Add After:=Sheets(Sheets.Count)  <span class="comment">'循环创建表单语句。</span></div><div class="line">        Sheets(Sheets.Count).Name = Sheets(sht_Main_ID).Cells(i, <span class="number">2</span>) <span class="comment">'循环命名分表名称，赋值号左边制定了总表的第2列数据，通过变量i遍历该列数据，填充到分表名陈属性。</span></div><div class="line"></div><div class="line">    <span class="comment">'表格函数的使用，以及获取总表数据填充到指定单元格。</span></div><div class="line">        Range(<span class="string">"A2"</span>).<span class="keyword">Select</span> <span class="comment">'选中当前循环下，所建表格中的A2单元格</span></div><div class="line">        ActiveCell.FormulaR1C1 = Sheets(sht_Main_ID).Cells(i, sht_Data_Rel_One)</div><div class="line">        <span class="comment">'将总表指定的数据填充到选中的单元格</span></div><div class="line">        Range(<span class="string">"B2"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveCell.FormulaR1C1 = Sheets(sht_Main_ID).Cells(i, sht_Data_Rel_Two)</div><div class="line">        ’同上</div><div class="line">        Range(<span class="string">"C2"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveCell.FormulaR1C1 = <span class="string">"0"</span></div><div class="line">        Range(<span class="string">"D2"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveCell.FormulaR1C1 = <span class="string">"=RC[-2]-RC[-1]"</span></div><div class="line">        ‘单元格运用函数</div><div class="line">        Range(<span class="string">"B3"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveCell.FormulaR1C1 = <span class="string">"=R[-1]C[2]"</span></div><div class="line">        Range(<span class="string">"C3"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveCell.FormulaR1C1 = <span class="string">"0"</span></div><div class="line">        Range(<span class="string">"D2"</span>).<span class="keyword">Select</span></div><div class="line">        Selection.AutoFill Destination:=Range(<span class="string">"D2:D3"</span>), Type:=xlFillDefault</div><div class="line">        Range(<span class="string">"H1"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveSheet.Hyperlinks.Add Anchor:=Selection, Address:=<span class="string">""</span>, SubAddress:= _</div><div class="line">        sht_Main_URL_Address, TextToDisplay:=sht_Main_URL_Text</div><div class="line">        Range(<span class="string">"H2"</span>).<span class="keyword">Select</span></div><div class="line">        ActiveCell.FormulaR1C1 = <span class="string">"=LOOKUP(9E+307,C[-4])"</span></div><div class="line">        ‘单元格运用函数，并实时更新变化了的数据，C[<span class="number">-4</span>]为指定列</div><div class="line">        Columns(<span class="string">"H:H"</span>).ColumnWidth = sht_H_ColumnWidth</div><div class="line"></div><div class="line">               <span class="comment">'工作表模板</span></div><div class="line">               Range(<span class="string">"A1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"型号"</span></div><div class="line">               Range(<span class="string">"B1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"总数量"</span></div><div class="line">               Range(<span class="string">"C1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"取用数量"</span></div><div class="line">               Range(<span class="string">"D1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"剩余数量"</span></div><div class="line">               Range(<span class="string">"E1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"用途"</span></div><div class="line">               Range(<span class="string">"F1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"领取人"</span></div><div class="line">               Range(<span class="string">"G1"</span>).<span class="keyword">Select</span></div><div class="line">               ActiveCell.FormulaR1C1 = <span class="string">"领取时间"</span></div><div class="line">               Columns(<span class="string">"B:B"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.00_);[ºìÉ«](0.00)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.0_);[ºìÉ«](0.0)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0_);[ºìÉ«](0)"</span></div><div class="line">               Columns(<span class="string">"C:C"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.00_);[ºìÉ«](0.00)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.0_);[ºìÉ«](0.0)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0_);[ºìÉ«](0)"</span></div><div class="line">               Columns(<span class="string">"D:D"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.00_);[ºìÉ«](0.00)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0.0_);[ºìÉ«](0.0)"</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"0_);[ºìÉ«](0)"</span></div><div class="line">               Columns(<span class="string">"E:E"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"@"</span></div><div class="line">               Columns(<span class="string">"F:F"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"@"</span></div><div class="line">               Columns(<span class="string">"G:G"</span>).<span class="keyword">Select</span></div><div class="line">               Selection.NumberFormatLocal = <span class="string">"[$-F800]dddd, mmmm dd, yyyy"</span></div><div class="line">               Columns(<span class="string">"A:A"</span>).ColumnWidth = sht_A_ColumnWidth</div><div class="line">               Columns(<span class="string">"B:B"</span>).ColumnWidth = sht_B_ColumnWidth</div><div class="line">               Columns(<span class="string">"C:C"</span>).ColumnWidth = sht_C_ColumnWidth</div><div class="line">               Columns(<span class="string">"D:D"</span>).ColumnWidth = sht_D_ColumnWidth</div><div class="line">               Columns(<span class="string">"E:E"</span>).ColumnWidth = sht_E_ColumnWidth</div><div class="line">               Columns(<span class="string">"F:F"</span>).ColumnWidth = sht_F_ColumnWidth</div><div class="line">               Selection.ColumnWidth = <span class="number">18</span></div><div class="line">               Cells.<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection</div><div class="line">                   .HorizontalAlignment = xlCenter</div><div class="line">                   .VerticalAlignment = xlCenter</div><div class="line">                   .WrapText = <span class="literal">False</span></div><div class="line">                   .Orientation = <span class="number">0</span></div><div class="line">                   .AddIndent = <span class="literal">False</span></div><div class="line">                   .IndentLevel = <span class="number">0</span></div><div class="line">                   .ShrinkToFit = <span class="literal">False</span></div><div class="line">                   .ReadingOrder = xlContext</div><div class="line">                   .MergeCells = <span class="literal">False</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               Columns(<span class="string">"B:B"</span>).<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">5296274</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">5296274</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">5296274</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               Columns(<span class="string">"D:D"</span>).<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">65535</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">               Columns(<span class="string">"F:F"</span>).<span class="keyword">Select</span></div><div class="line">               <span class="keyword">With</span> Selection.Interior</div><div class="line">                   .Pattern = xlSolid</div><div class="line">                   .PatternColorIndex = xlAutomatic</div><div class="line">                   .Color = <span class="number">15773696</span></div><div class="line">                   .TintAndShade = <span class="number">0</span></div><div class="line">                   .PatternTintAndShade = <span class="number">0</span></div><div class="line">               <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line"></div><div class="line">                Columns(<span class="string">"A:G"</span>).<span class="keyword">Select</span></div><div class="line">                Selection.Borders(xlDiagonalDown).LineStyle = xlNone</div><div class="line">                Selection.Borders(xlDiagonalUp).LineStyle = xlNone</div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeLeft)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeTop)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeBottom)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlEdgeRight)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlInsideVertical)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line">                <span class="keyword">With</span> Selection.Borders(xlInsideHorizontal)</div><div class="line">                    .LineStyle = xlContinuous</div><div class="line">                    .ColorIndex = xlAutomatic</div><div class="line">                    .TintAndShade = <span class="number">0</span></div><div class="line">                    .Weight = xlThin</div><div class="line">                <span class="keyword">End</span> <span class="keyword">With</span></div><div class="line"></div><div class="line">    <span class="keyword">Next</span></div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div></pre></td></tr></table></figure></p>
+<p>  更新剩余数量数据单元格状态:<br>  <figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">Sub</span> 更新总表剩余数量单元格状态()</div><div class="line"><span class="comment">'更新剩余数量单元格</span></div><div class="line"><span class="comment">'程序控制常量</span></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_Beg = <span class="number">2</span> <span class="comment">'单列中，单元格起点位置</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_End = <span class="number">6</span> <span class="comment">'单列中，单元格终点位置</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_Rest = <span class="number">4</span> <span class="comment">'总表中，剩余数量项所在列数</span></div><div class="line"><span class="keyword">Const</span> sub_sht_Cell_Rest_Row = <span class="number">8</span> <span class="comment">'分表中，为实现剩余数量实时更新而设的单元格列位置</span></div><div class="line"><span class="keyword">Const</span> sub_sht_Cell_Rest_Col = <span class="number">2</span> <span class="comment">'行位置</span></div><div class="line"></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'</span></div><div class="line"></div><div class="line">    <span class="keyword">For</span> i = sht_Cell_Beg <span class="keyword">To</span> sht_Cell_End                                 <span class="comment">' ｉ为分表单ＩＤ　顺序号</span></div><div class="line">    Cells(i, sht_Cell_Rest).<span class="keyword">Select</span></div><div class="line">    ActiveCell.FormulaR1C1 = Sheets(i).Cells(sub_sht_Cell_Rest_Col, sub_sht_Cell_Rest_Row)</div><div class="line">    ’激活单元格，并填充指定分表中　实时更新所在单元格的数据，这个单元格已在分表中定义了Lookup函数</div><div class="line">     <span class="keyword">Next</span></div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div></pre></td></tr></table></figure></p>
+<p>更新总表总数量单元格状态:<br><figure class="highlight vb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">Sub</span> 更新总表总数量单元格状态()</div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'程序控制常量</span></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_Beg = <span class="number">2</span> <span class="comment">'单列中，单元格列起点位置</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_End = <span class="number">6</span> <span class="comment">'单列中，单元格列终点位置</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_Total = <span class="number">3</span> <span class="comment">'总表中总数量项所在列数</span></div><div class="line"><span class="keyword">Const</span> sht_Cell_Rest = <span class="number">4</span> <span class="comment">'总表中剩余数量项所在列数</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'</span></div><div class="line"><span class="comment">'</span></div><div class="line"></div><div class="line">    <span class="keyword">For</span> i = sht_Cell_Beg <span class="keyword">To</span> sht_Cell_End                                 </div><div class="line">    Cells(i, sht_Cell_Total).<span class="keyword">Select</span>　‘选中指定单元格</div><div class="line">    ActiveCell.FormulaR1C1 = Cells(i, sht_Cell_Rest)</div><div class="line">    <span class="keyword">Next</span></div><div class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></div></pre></td></tr></table></figure></p>
+<hr>
+<font size="4">
+
+<p></p></font><p></p>
+<hr>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://6donote4-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+
+
+          <div class="main-footer">
+  
+    © 2019 ​乘风踏浪破万障のブログ - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script id="dsq-count-scr" src="//6donote4-github-io.disqus.com/count.js" async></script>
+
+</body>
+
+</html>

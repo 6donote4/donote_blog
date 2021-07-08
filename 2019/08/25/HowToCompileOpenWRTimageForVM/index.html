@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    ​乘风踏浪破万障のブログ
+  
+</title>
+
+<meta name="description" content="title:「原创」如何为软路由编译OpenWRT固件翻墙后，即可评论博文之前一篇博文记录关于虚拟机路由器的搭建过程，使用了KoolShare家的固件进行搭建。由于KoolShare固件并不是开源的，运行这个固件只有二进制代码，非常不透明，我们并不知道这个固件是否会有后门，偷偷的将我们的精神出国工具收集上传到所谓的酷软中心服务器。为了避免这种可能性，选择了开源的适合国内网络环境的LEDE代码仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="​乘风踏浪破万障のブログ">
+<meta property="og:url" content="https://www.donote.tk/BBS/2019/08/25/HowToCompileOpenWRTimageForVM/index.html">
+<meta property="og:site_name" content="​乘风踏浪破万障のブログ">
+<meta property="og:description" content="title:「原创」如何为软路由编译OpenWRT固件翻墙后，即可评论博文之前一篇博文记录关于虚拟机路由器的搭建过程，使用了KoolShare家的固件进行搭建。由于KoolShare固件并不是开源的，运行这个固件只有二进制代码，非常不透明，我们并不知道这个固件是否会有后门，偷偷的将我们的精神出国工具收集上传到所谓的酷软中心服务器。为了避免这种可能性，选择了开源的适合国内网络环境的LEDE代码仓库">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-184223_VNC%20Viewer.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-184331_VNC%20Viewer.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-195634_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-195659_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-195911_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200015_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200115_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200205_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200219_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200237_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200257_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200342_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200629_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200648_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200706_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200721_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200733_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200738_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200757_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-200824_Firefox.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-201121_YouTube.jpg">
+<meta property="og:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-201144_YouTube.jpg">
+<meta property="og:updated_time" content="2019-08-25T11:55:16.479Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="​乘风踏浪破万障のブログ">
+<meta name="twitter:description" content="title:「原创」如何为软路由编译OpenWRT固件翻墙后，即可评论博文之前一篇博文记录关于虚拟机路由器的搭建过程，使用了KoolShare家的固件进行搭建。由于KoolShare固件并不是开源的，运行这个固件只有二进制代码，非常不透明，我们并不知道这个固件是否会有后门，偷偷的将我们的精神出国工具收集上传到所谓的酷软中心服务器。为了避免这种可能性，选择了开源的适合国内网络环境的LEDE代码仓库">
+<meta name="twitter:image" content="https://www.donote.tk/pictures/OpenWRT_Compilation/Screenshot_20190525-184223_VNC%20Viewer.jpg">
+
+
+  <link rel="alternative" href="/atom.xml" title="​乘风踏浪破万障のブログ" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/images/favicon.jpg">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+​
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-101005160-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">​乘风踏浪破万障のブログ</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">​乘风踏浪破万障のブログ</a></h1>
+    
+      <p class="subtitle">
+        ​向往自由的世间
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+          <div class="description">​发出自己的声音，向世界呐喊。</div>
+        
+        
+          <div class="author">DoNote</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="/images/avatar.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/原创博文/">原创博文</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/图片/">图片</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/外文翻译/">外文翻译</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小推文/">小推文</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂文/">杂文</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/视频/">视频</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/音乐/">音乐</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel模版创建/">Excel模版创建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel模版创建/">Excel模版创建　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel自动化/">Excel自动化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel自动化/">Excel自动化　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KOOLSHARE/">KOOLSHARE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVM/">KVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LinuxShellScript-SQL数据库/">LinuxShellScript SQL数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MTV/">MTV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenWRT/">OpenWRT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Privoxy/">Privoxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QEMU/">QEMU</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RaspberryPi/">RaspberryPi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks-libev/">Shadowsocks-libev</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/中国/">中国</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/事故/">事故</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/人工智能/">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/俄罗斯/">俄罗斯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/健康/">健康</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/医改/">医改</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/医疗/">医疗</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客搭建/">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/台湾-威斯忌酒-旅行/">台湾 威斯忌酒 旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片/">图片</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小心情/">小心情</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速创建表单/">快速创建表单</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性骚扰/">性骚扰　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/意大利/">意大利</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/手机App/">手机App</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/抑郁/">抑郁</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/政治/">政治</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/政治/">政治　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文化/">文化　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅行/">旅行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/时事/">时事</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/汽车导航/">汽车导航</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/测谎仪/">测谎仪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/眼睛侦测/">眼睛侦测</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/硅谷产业/">硅谷产业　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科技/">科技</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科技/">科技　</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/美国/">美国</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动驾驶汽车/">自动驾驶汽车</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/诺贝尔/">诺贝尔</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/谷歌/">谷歌</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/透明代理/">透明代理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐/">音乐</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">24</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="主页">主页</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="文章">文章</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://www.donote.tk" title="DoNote" target="_blank" rel="external">DoNote</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://www.donote.tk/BBS" title="donote's BBS(论坛)" target="_blank" rel="external">donote's BBS(论坛)</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://6donote4.github.io" title="Github Blog" target="_blank" rel="external">Github Blog</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/6donote4" title="Github Page" target="_blank" rel="external">Github Page</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/atom.xml" title="RSS订阅">RSS订阅</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-HowToCompileOpenWRTimageForVM" class="article article-type-post">
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-08-25
+</span>
+
+    
+
+    
+
+  </div>
+  <div class="article-entry">
+    <hr>
+<h2 id="title-「原创」如何为软路由编译OpenWRT固件"><a href="#title-「原创」如何为软路由编译OpenWRT固件" class="headerlink" title="title:「原创」如何为软路由编译OpenWRT固件"></a>title:「原创」如何为软路由编译OpenWRT固件</h2><p><font size="4"><br>翻墙后，即可评论博文<br>之前一篇博文记录关于虚拟机路由器的搭建过程，使用了KoolShare家的固件进行搭建。由于KoolShare固件并不是开源的，运行这个固件只有二进制代码，非常不透明，我们并不知道这个固件是否会有后门，偷偷的将我们的精神出国工具收集上传到所谓的酷软中心服务器。为了避免这种可能性，选择了开源的适合国内网络环境的LEDE代码仓库，自行编译定制属于自己的软路由固件。本篇博文出于这个目的，来记录软路由固件的编译过程。待重新编译时，可回顾一下这个过程。<br>编译过程使用了恩山社区L大的源码包进行编译，在此基础上，汇整了ChinaDNS,Koolproxy源码包，解除ssr-plus插件的解锁代码，纠正一处Makefile错误，使得SSR-plus可以顺利编译。<br>因amule和softetherVPN在编译过程中出错，无法解决问题，只能放弃了这两个包。<br>因硬件路由性能并不如软路由，而且需要考虑各种架构问题。因此只编译x86_amd64的固件。<br></font><br><a id="more"></a></p>
+<p><audio controls="controls" name="media" style="width:264px" autoplay loop="true"> <source src="/musics/huimengyouxian.mp3"> </audio></p>
+<p><audio controls="controls" name="media" style="width:264px" loop="false"> <source src="/musics/lovelovelove.mp3"> </audio></p>
+<p><audio controls="controls" name="media" style="width:264px" loop="false"> <source src="/musics/qianban.mp3"> </audio></p>
+<p><audio controls="controls" name="media" style="width:264px" loop="false"> <source src="/musics/wish.mp3"> </audio> </p>
+<hr>
+<p><font size="4"></font></p>
+<ol>
+<li>搭建编译环境</li>
+</ol>
+<ul>
+<li>使用任意平台的宿主机和任意一种虚拟化软件，下载Ubuntu 14 64 Bit Linux server 发行版并安装到虚拟机中，Ubuntu系统盘可只分配8Gb的硬盘空间，安装时选择ssh server,编译时需要另外创建一块40GB的虚拟磁盘，用于存放编译产生的对象文件。我选择使用Manjaro作为宿主系统平台，使用qemu+libvirt(KVM虚拟机）来搭建编译环境。</li>
+<li>安装完系统到虚拟机后，使用<code>/etc/init.d/ssh enable</code> 和 <code>/etc/init.d/ssh start</code> 启用ssh 服务。</li>
+<li>宿主机ssh登录Ubuntu虚拟机， <code>ssh username@vmip</code> ip地址可使用 <code>ifconfig</code>查看。</li>
+<li>更新系统源，并安装编译固件所需的依赖包<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint proxychains</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>为编译工作配置一个通畅的网络环境<br>由于众所周知的原因，在中国下载编译某些软件源码包时，网络环境非常糟糕。这时，需要路由器提供全局代理服务。如果路由器没有全局代理的话，可以考虑使用宿主机建立代理，proxychains 让虚拟机终端命令走宿主机代理的方式。<br>现记录proxychains配置的网络环境。</li>
+</ol>
+<ul>
+<li>宿主机使用v2ray，shadowsocks , shadowsocksr 等，使用自行搭建的远程服务器或者其他机场账号建立代理。</li>
+<li><code>echo &quot;http 192.168.10.1 3120&quot; &gt;&gt; /etc/proxychains.conf</code> ,192.168.10.1为宿主机在虚拟机网络中的IP地址，可自行设置任意ip,设置proxychains的配置文件。</li>
+</ul>
+<ol>
+<li>编译流程</li>
+</ol>
+<ul>
+<li><p>获取源码</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">proxychains git <span class="built_in">clone</span> https://github.com/openwrt/openwrt.git</div><div class="line">proxychains git <span class="built_in">clone</span> https://github.com/6donote4/kvmLeanWRT.git</div></pre></td></tr></table></figure>
+</li>
+<li><p>拷贝已经配置好的编译配置文件及Lean包到OpenWRT编译目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp -rf ./kvmLeanWRT/package/lean ./openwrt/package/ </div><div class="line">cp -rf ./kvmLeanWRT/config ./openwrt/.config</div></pre></td></tr></table></figure>
+</li>
+<li><p>拉取源码更新并编译</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> openwrt </div><div class="line">proxychains ./scripts/feeds update -a </div><div class="line">proxychains ./scripts/feeds install -a </div><div class="line">make -j4 V=s menuconfig </div><div class="line">proxychains make -j1 V=s</div></pre></td></tr></table></figure>
+</li>
+<li><p>编译过程注意点<br>弹出编译选择框之后，移动光标选择load,保持.config不动,选确定 目录内的编译配置文件已经编译成功过，保持该配置，如果梯子没问题 可一次成功。编译前下载dl包到openwrt目录。可以缩短编译时间。 本人在重编译的过程中，因梯子未配置ipv6,在编译python包的出现错误， 此时撤掉梯子，直接make -j4 V=s，就不会有问题了。</p>
+</li>
+<li>完成编译<br>编译完成后的目标文件在 openwrt/bin/target/x86_64 目录下。 编译时，虚拟机磁盘最好分配40GB。编译成功的输出结果见下图:<br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-184223_VNC Viewer.jpg"><br>生成的目标文件:<br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-184331_VNC Viewer.jpg"></li>
+<li>固件烧写<br>在任意一种虚拟化平台上运行任意Linux发行版(vbox,vmware,kvm等),创建一块虚拟机空白磁盘用于烧写固件，选择固件镜像以虚拟磁盘方式挂到虚拟机中，作为烧写输入文件。<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo fdisk -l <span class="comment">#查找盘符,确认出镜像盘如(/dev/sda),目标盘如(/dev/sdb),开始烧写。</span></div><div class="line">sudo dd <span class="keyword">if</span>=/dev/sda of=/dev/sdb</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用gparted 调整sdb磁盘空间。 烧写完成。</p>
+<ul>
+<li><p>配置OpenWRT，软路由开始运作。<br>挂载到虚拟机实例，进入openWRT后，在openwrt虚拟机内更改密码， 启动web服务，设置LAN ip地址。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">passwd </div><div class="line">/etc/init.d/uhttpd <span class="built_in">enable</span> </div><div class="line">/etc/init.d/uhttpd start </div><div class="line">vi /etc/config/network </div><div class="line">/etc/init.d/network restart</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行效果图:<br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-195634_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-195659_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-195911_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200015_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200115_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200205_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200219_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200237_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200257_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200342_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200629_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200648_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200706_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200721_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200733_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200738_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200757_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-200824_Firefox.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-201121_YouTube.jpg"><br><img width="600" src="/pictures/OpenWRT_Compilation/Screenshot_20190525-201144_YouTube.jpg"><br><a href="https://github.com/6donote4/kvmLeanWRT/releases" target="_blank" rel="external">点击此处获取固件</a><br></p>
+<hr>
+</li>
+</ul>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.z" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://6donote4-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+
+
+          <div class="main-footer">
+  
+    © 2019 ​乘风踏浪破万障のブログ - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script id="dsq-count-scr" src="//6donote4-github-io.disqus.com/count.js" async></script>
+
+</body>
+
+</html>
