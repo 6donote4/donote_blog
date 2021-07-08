@@ -11,7 +11,7 @@ export PATH
 #=======================================
 git pull
 #hexo g
-rsync -avz . $HOME/mygitrepo/6donote4.github.io --exclude .git
+rsync -avz --exclude .git . $HOME/mygitrepo/6donote4.github.io 
 rsync -avz . /var/www/blog/html
 #rsync -avz public/ $HOME/mygitrepo/temp/6donote4.gitlab.io/public
 #hexo clean
