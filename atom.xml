@@ -6,7 +6,7 @@
   <link href="https://www.donote.ml/BBS/atom.xml" rel="self"/>
   
   <link href="https://www.donote.ml/BBS/"/>
-  <updated>2021-07-10T11:27:10.369Z</updated>
+  <updated>2021-07-11T01:33:36.066Z</updated>
   <id>https://www.donote.ml/BBS/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>『译文』热浪-正在上升中的水银柱</title>
+    <link href="https://www.donote.ml/BBS/2021/07/10/Heatwaves-Mercury-Rising/"/>
+    <id>https://www.donote.ml/BBS/2021/07/10/Heatwaves-Mercury-Rising/</id>
+    <published>2021-07-10T14:36:00.000Z</published>
+    <updated>2021-07-11T01:33:36.066Z</updated>
+    
+    
+    <summary type="html">&lt;font size=4&gt;
+&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
+文章来源于2021年7月3日的经济学人，原文节选见博文后附图。&lt;/p&gt;
+&lt;/font&gt;</summary>
+    
+    
+    
+    <category term="外文翻译" scheme="https://www.donote.ml/BBS/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
+    
+    
+    <category term="高温天气" scheme="https://www.donote.ml/BBS/tags/%E9%AB%98%E6%B8%A9%E5%A4%A9%E6%B0%94/"/>
+    
+  </entry>
   
   <entry>
     <title>日语语法记忆例句</title>
@@ -500,29 +522,6 @@ inoERP系统的模块有:仓库管理，销售管理,采购管理，BOM物料账
     <category term="意大利" scheme="https://www.donote.ml/BBS/tags/%E6%84%8F%E5%A4%A7%E5%88%A9/"/>
     
     <category term="旅行" scheme="https://www.donote.ml/BBS/tags/%E6%97%85%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「译文」一种台湾威斯忌是如何成为一种全球喜好的</title>
-    <link href="https://www.donote.ml/BBS/2017/10/01/taiwan-whisky-kavalan/"/>
-    <id>https://www.donote.ml/BBS/2017/10/01/taiwan-whisky-kavalan/</id>
-    <published>2017-10-01T14:26:00.000Z</published>
-    <updated>2021-07-10T11:36:12.239Z</updated>
-    
-    
-    <summary type="html">&lt;font size=4&gt;
-&lt;p&gt;翻墙后，即可评论博文&lt;br /&gt;
-文章来源于CNN网站 :  &lt;a href=&quot;http://edition.cnn.com/travel/article/taiwan-whisky-kavalan/index.html&quot;&gt;点击查看原文&lt;/a&gt; 可能需要翻墙才能查阅。&lt;br /&gt;
-作者:Marian Liu&lt;/p&gt;
-&lt;/font&gt;</summary>
-    
-    
-    
-    <category term="外文翻译" scheme="https://www.donote.ml/BBS/categories/%E5%A4%96%E6%96%87%E7%BF%BB%E8%AF%91/"/>
-    
-    
-    <category term="台湾 威斯忌酒 旅行" scheme="https://www.donote.ml/BBS/tags/%E5%8F%B0%E6%B9%BE-%E5%A8%81%E6%96%AF%E5%BF%8C%E9%85%92-%E6%97%85%E8%A1%8C/"/>
     
   </entry>
   
